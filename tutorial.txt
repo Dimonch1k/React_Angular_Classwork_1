@@ -1,0 +1,8 @@
+	How to create react-app:
+
+1. npx create-react-app ./
+2. npm start
+
+What to do:
+	1. Create components if you see a separate block (e.g. header, filter, list)
+	
