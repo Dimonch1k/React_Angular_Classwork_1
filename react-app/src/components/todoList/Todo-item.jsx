@@ -2,34 +2,34 @@ import React from "react";
 
 const TodoItem = ({ title, completed }) => {
   return (
-    <div className="task-item">
+    <div className="task-list__item">
       <input type="checkbox" defaultChecked={completed} />
       <span
+        className="task-title"
         style={{
-          marginLeft: "10px",
-          textDecoration: completed === true ? "line-through" : "none",
+          textDecoration: completed ? "line-through" : "none",
         }}
       >
         {title}
       </span>
 
-      <button>
+      <button className="delete-btn">
         <img
-          src="https://static.vecteezy.com/system/resources/previews/026/529/438/non_2x/simple-red-cross-mark-icon-vector.jpg"
+          src={require("../../images/red-cross-circle_icon.png")}
           alt="red cross icon"
-          style={{ width: "20px", height: "20px" }}
+          style={{ width: "15px", height: "15px", borderRadius: "50%"}}
         />
       </button>
     </div>
   );
 };
 
-function isCompleted(completed) {
-  if (completed === true) {
-    return "line-through";
-  } else {
-    return "none";
-  }
-}
-
 export default TodoItem;
+
+// function isCompleted(completed) {
+//   if (completed === true) {
+//     return "line-through";
+//   } else {
+//     return "none";
+//   }
+// }

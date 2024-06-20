@@ -1,0 +1,34 @@
+$flex: flex;
+$center: center;
+$white: white;
+
+@mixin df_jcc_aic {
+  display: $flex;
+  justify-content: $center;
+  align-items: $center;
+}
+
+@mixin df_aic {
+  display: $flex;
+  align-items: $center;
+}
+
+@mixin todo_styles {
+    
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+
+  @include df_aic;
+  flex-direction: column;
+}
+
+@mixin header_styles {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 10px;
+    padding-top: 1rem;
+
+    text-align: $center;
+    color: $white;
+}

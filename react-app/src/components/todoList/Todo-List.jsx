@@ -1,5 +1,5 @@
 import React from "react";
-import "./Todo.css";
+import "./Todo.scss";
 import TodoAddTask from "./Todo-add-task";
 import TodoFilters from "./Todo-filters";
 import TodoItem from "./Todo-item";
@@ -20,6 +20,7 @@ const TodoList = () => {
           width: "60%",
           backgroundColor: "white",
           padding: ".5em 0 .6rem 0",
+          borderRadius: "2px",
         }}
       >
         {/* Filters */}

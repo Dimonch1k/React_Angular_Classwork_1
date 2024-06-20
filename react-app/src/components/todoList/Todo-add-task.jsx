@@ -4,20 +4,21 @@ const TodoAddTask = () => {
   return (
     <div className="add-task">
       <img
-        src="https://cdn2.iconfinder.com/data/icons/toolbar-signs-2/512/list_text_document_book_schedule-512.png"
+        src={require("../../images/todoList.png")}
         alt="Todo list icon"
-        style={{ width: "40px", height: "30px" }}
+        className="add-task__icon"
       />
 
       <input
         type="text"
-        className="add-text"
+        className="add-task__text"
+        id="add-task-text"
         placeholder="Enter your next task"
       />
 
-      <button className="add-btn">
+      <button className="add-task__btn">
         <img
-          src="https://banner2.cleanpng.com/20180409/gye/kisspng-computer-icons-symbol-icon-design-google-plus-5acb0027158c40.8641644415232532870883.jpg"
+          src={require("../../images/add-task_icon.jpg")}
           alt="white plus icon"
           style={{ width: "20px", height: "20px" }}
         />
@@ -26,4 +27,20 @@ const TodoAddTask = () => {
   );
 };
 
+
 export default TodoAddTask;
+
+// document.getElementById("add-task-btn").addEventListener("click", function () {
+
+//   document.querySelectorAll(".buttonClass").forEach((item) => {
+//     item.addEventListener("click", (e) => {
+//       change();
+//     });
+//   });
+// });
+
+// function change() {
+//   document.querySelectorAll("#b2").forEach((item) => {
+//     item.parentNode.style = "text-decoration: line-through;";
+//   });
+// }
