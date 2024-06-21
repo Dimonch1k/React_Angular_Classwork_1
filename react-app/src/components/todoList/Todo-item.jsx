@@ -3,7 +3,16 @@ import React from "react";
 const TodoItem = ({ title, completed }) => {
   return (
     <div className="task-list__item">
-      <input type="checkbox" defaultChecked={completed} />
+      <img
+        src={
+          completed
+            ? require("../../images/checked.jpg")
+            : require("../../images/unchecked.jpg")
+        }
+        alt="checked unchecked"
+        onClick={completeTask}
+      />
+
       <span
         className="task-title"
         style={{
@@ -17,7 +26,7 @@ const TodoItem = ({ title, completed }) => {
         <img
           src={require("../../images/red-cross-circle_icon.png")}
           alt="red cross icon"
-          style={{ width: "15px", height: "15px", borderRadius: "50%"}}
+          style={{ width: "15px", height: "15px", borderRadius: "50%" }}
         />
       </button>
     </div>
@@ -26,10 +35,7 @@ const TodoItem = ({ title, completed }) => {
 
 export default TodoItem;
 
-// function isCompleted(completed) {
-//   if (completed === true) {
-//     return "line-through";
-//   } else {
-//     return "none";
-//   }
-// }
+
+function completeTask() {
+  
+}

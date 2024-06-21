@@ -15,14 +15,7 @@ const TodoList = () => {
       {/* Add item to Todo List */}
       <TodoAddTask />
 
-      <div
-        style={{
-          width: "60%",
-          backgroundColor: "white",
-          padding: ".5em 0 .6rem 0",
-          borderRadius: "2px",
-        }}
-      >
+      <div className="todo-wrapper">
         {/* Filters */}
         <TodoFilters />
 

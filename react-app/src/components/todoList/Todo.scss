@@ -4,7 +4,6 @@
 $white: white;
 $mp0505: 0 5px 0 5px;
 
-
 button {
   background-color: $white;
   padding: 0;
@@ -17,6 +16,7 @@ img {
 
 hr {
   border: 0.5px solid rgb(158, 158, 158);
+  margin: 0;
 }
 
 input[type="checkbox"] {
@@ -34,32 +34,31 @@ button {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   @include todo_styles;
+  margin: 0;
+  padding: 0;
 
   &__header {
     @include header_styles;
   }
 
-  .add-task,
-  .filter {
+  :is(.add-task, .filter) {
     background-color: $white;
   }
 
   .add-task {
-    width: 60%;
+    @include w_h(60%);
+    @include df_jcc_aic;
+
     padding: 10px 0 10px 0;
     margin-bottom: 50px;
 
-    @include df_jcc_aic;
-
     &__icon {
-      width: 30px;
-      height: 30px;
+      @include w_h(30px, 30px);
       margin-left: 0.5rem;
     }
 
     &__text {
-      height: 100%;
-      width: max(100%);
+      @include w_h(100%, max(100%));
       margin-left: 20px;
       padding: 0 20px 0 20px;
       font-family: "Roboto Slab", serif;
@@ -75,54 +74,72 @@ button {
     }
   }
 
-  .filter {
-    @include df_aic;
-    justify-content: space-between;
+  .todo-wrapper {
+    @include w_h(60%);
+    border-radius: 10px;
+    background-color: $white;
 
-    .filter-buttons {
-      @include df_jcc_aic;
+    :is(.filter, .task-list__item) {
+      padding: 0.4rem 0 0.4rem 0;
+    }
 
-      button {
-        color: rgb(68, 140, 207);
-        margin: $mp0505;
-        padding: $mp0505;
-        border-radius: 3px;
-        font-weight: 600;
-        transition: background-color 0.3s linear;
+    :is(.filter, .filter-buttons > button) {
+      border-radius: 3px;
+    }
 
-        &:hover {
-          background-color: rgb(184, 184, 184);
-          transition: background-color 0.5s linear;
+    .filter {
+      @include df_aic;
+      justify-content: space-between;
+
+      .filter-buttons {
+        @include df_jcc_aic;
+
+        button {
+          @include fs_fw(.75, 600);
+          color: rgb(68, 140, 207);
+          margin: $mp0505;
+          padding: $mp0505;
+          transition: background-color 0.3s linear;
+
+          &:hover {
+            background-color: rgb(184, 184, 184);
+            transition: background-color 0.5s linear;
+          }
         }
       }
     }
-  }
 
-  .task-list {
-    &__item {
-      padding-right: 8px;
-      @include df_aic;
-
-      .task-title {
-        margin-left: 10px;
-        overflow-y: scroll;
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
-
-      .delete-btn {
+    .task-list {
+      &__item {
+        padding-right: 8px;
         opacity: 0.4;
-        margin-left: auto;
         transition: all 0.3s linear;
-        @include df_aic;
-      }
 
-      &:hover {
+        @include df_aic;
+
+        img {
+          @include w_h(14px, 14px);
+          margin-left: 5px;
+          cursor: pointer;
+        }
+
+        .task-title {
+          margin-left: 10px;
+          overflow-y: scroll;
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
         .delete-btn {
+          margin-left: auto;
+          @include df_aic;
+        }
+
+        &:hover {
           opacity: 1;
         }
       }
