@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import { taskList } from "./taskList";
 
-const TodoItem = ({ title, completed }) => {
+const TodoItem = ({ task, removeTask}) => {
+  // state of component. Its change make rerender of component
+  // const [completed, setCompleted] = useState(1);
+
+  const completeTask = () => {
+    if (task.completed) {
+      task.completed = false;
+      return;
+    }
+    task.completed = true;
+  };
+
+  const removeTaskHandler = (taskId) => {
+    removeTask(taskId);
+  }
+
   return (
-    <div className="task-list__item">
-      <img
-        src={
-          completed
-            ? require("../../images/checked.jpg")
-            : require("../../images/unchecked.jpg")
-        }
-        alt="checked unchecked"
-        onClick={completeTask}
-      />
+    <div
+      className="task-list__item"
+      style={{ opacity: task.completed && "0.5" }}
+    >
+      <button className="complete-btn" onClick={completeTask}>
+        <img
+          src={
+            task.completed
+              ? require("../../images/checked.jpg")
+              : require("../../images/unchecked.jpg")
+          }
+          alt="checked unchecked"
+        />
+      </button>
 
-      <span
+      <input
         className="task-title"
         style={{
-          textDecoration: completed ? "line-through" : "none",
+          textDecoration: task.completed && "line-through",
         }}
-      >
-        {title}
-      </span>
+        defaultValue={task.title}
+      />
 
-      <button className="delete-btn">
+      <button className="delete-btn" onClick={() => removeTaskHandler(task.id)}>
         <img
           src={require("../../images/red-cross-circle_icon.png")}
           alt="red cross icon"
@@ -34,8 +53,3 @@ const TodoItem = ({ title, completed }) => {
 };
 
 export default TodoItem;
-
-
-function completeTask() {
-  
-}

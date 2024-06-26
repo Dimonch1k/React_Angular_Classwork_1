@@ -6,7 +6,7 @@ const TodoFilters = () => {
       <img
         src="https://cdn2.iconfinder.com/data/icons/thin-line-color-1/21/11-512.png"
         alt="completed task icon"
-        style={{width: "25px", height: "20px"}}
+        style={{maxWidth: "25px", maxHeight: "20px"}}
       />
 
       <div className="filter-buttons">

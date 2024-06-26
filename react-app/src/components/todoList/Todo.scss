@@ -11,7 +11,7 @@ button {
 }
 
 img {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 hr {
@@ -21,6 +21,10 @@ hr {
 
 input[type="checkbox"] {
   cursor: pointer;
+}
+
+input:focus {
+  outline: none;
 }
 
 input,
@@ -62,10 +66,6 @@ button {
       margin-left: 20px;
       padding: 0 20px 0 20px;
       font-family: "Roboto Slab", serif;
-
-      &:focus {
-        outline: none;
-      }
     }
 
     &__btn {
@@ -112,21 +112,26 @@ button {
     .task-list {
       &__item {
         padding-right: 8px;
-        opacity: 0.4;
         transition: all 0.3s linear;
 
         @include df_aic;
 
-        img {
+        .complete-btn {
           @include w_h(14px, 14px);
+          position: relative;
           margin-left: 5px;
-          cursor: pointer;
+          display: flex;
+
+          img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
         }
 
         .task-title {
           margin-left: 10px;
           overflow-y: scroll;
-          -ms-overflow-style: none; /* IE and Edge */
           scrollbar-width: none; /* Firefox */
 
           &::-webkit-scrollbar {
@@ -137,10 +142,6 @@ button {
         .delete-btn {
           margin-left: auto;
           @include df_aic;
-        }
-
-        &:hover {
-          opacity: 1;
         }
       }
     }

@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-const TodoAddTask = () => {
+const TodoAddTask = ({ addTask }) => {
+  const [title, setTitle] = useState("");
+
+
+  const addTaskHandler = (title) => {
+    addTask(title);
+  }
+
   return (
     <div className="add-task">
       <img
@@ -14,9 +21,10 @@ const TodoAddTask = () => {
         className="add-task__text"
         id="add-task-text"
         placeholder="Enter your next task"
+        onChange={(e) => setTitle(e.target.value)}
       />
 
-      <button className="add-task__btn">
+      <button className="add-task__btn" onClick={addTaskHandler(title)}>
         <img
           src={require("../../images/add-task_icon.jpg")}
           alt="white plus icon"
@@ -26,7 +34,6 @@ const TodoAddTask = () => {
     </div>
   );
 };
-
 
 export default TodoAddTask;
 
